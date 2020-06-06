@@ -49,8 +49,7 @@ if (isset($_SESSION['autenticado']) && $_SESSION['autenticado'] == 'si'):
 	</div>
 </body>
 </html>
-<?php else: 
+<?php else:
 	header('Location: ' . BASE_URL . 'usuarios/login.php');
 endif;
 ?>
-	

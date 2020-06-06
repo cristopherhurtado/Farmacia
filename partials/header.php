@@ -30,8 +30,8 @@
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="<?php echo BASE_URL . 'roles/roles.php' ?>">Roles</a>
             <a class="dropdown-item" href="<?php echo BASE_URL . 'usuarios/usuarios.php' ?>">Usuarios</a>
-            <a class="dropdown-item" href="<?php echo BASE_URL . '#' ?>">Productos</a>
-            <a class="dropdown-item" href="<?php echo BASE_URL . '#' ?>">Marcas</a>
+            <a class="dropdown-item" href="<?php echo BASE_URL . 'proveedores/proveedores.php' ?>">Proveedores</a>
+            <a class="dropdown-item" href="<?php echo BASE_URL . 'marcas/marcas.php' ?>">Marcas</a>
           </div>
         </li>
       <?php endif; ?>
