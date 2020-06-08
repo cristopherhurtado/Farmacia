@@ -5,15 +5,12 @@ session_start();
 
 require('../class/proveedoresModel.php');
 require('../class/config.php');
-//creamos una instancia de la clase rolModel
+
 $proveedores = new proveedoresModel;
 
-//print_r($_GET);
-
 if (isset($_GET['id'])) {
-	//recuperamos y sanitizamos el dato que viene por cabecera
+
 	$id = filter_var($_GET['id'], FILTER_VALIDATE_INT);
-	//$id = (int) $id;
 
 	$res = $proveedores->getProveedorId($id);
 
@@ -23,15 +20,13 @@ if (isset($_GET['id'])) {
 	}
 }
 
-//print_r($res);
-
-if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador'):
+if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador' || $_SESSION['rol'] == 'Supervisor(a)' ):
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Rol</title>
+	<title>Proveedores</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
@@ -41,10 +36,10 @@ if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador'):
 		<?php include('../partials/header.php'); ?>
 		<div class="row">
 			<div class="col-md-6 mt-3">
-				<h3>Rol</h3>
-				<!--Valida o notifica que el registro se ha realizado-->
+				<h3>Proveedor</h3>
+
 				<?php if(isset($_GET['m'])): ?>
-					<p class="alert alert-success">El rol se ha modificado correctamente</p>
+					<p class="alert alert-success">El proveedor se ha modificado correctamente</p>
 				<?php endif; ?>
 
 				<?php if(isset($mensaje)): ?>
@@ -53,24 +48,38 @@ if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador'):
 
 				<table class="table table-hover">
 					<tr>
-						<th>Rol:</th>
+						<th>Proveedor:</th>
 						<td><?php echo $res['nombre']; ?></td>
 					</tr>
 					<tr>
-						<th>Fecha de creación:</th>
+						<th>Rut:</th>
 						<td>
 							<?php
-								$fecha_reg = new DateTime($res['created_at']);
-								echo $fecha_reg->format('d-m-Y H:i:s');
+								echo $res['rut'];
 							?>
 						</td>
 					</tr>
 					<tr>
-						<th>Fecha de modificación:</th>
+						<th>Direccion:</th>
 						<td>
 							<?php
-								$fecha_mod = new DateTime($res['updated_at']);
-								echo $fecha_mod->format('d-m-Y H:i:s');
+								echo $res['direccion'];
+							?>
+						</td>
+					</tr>
+					<tr>
+						<th>Email:</th>
+						<td>
+							<?php
+								echo $res['email'];
+							?>
+						</td>
+					</tr>
+					<tr>
+						<th>Contacto:</th>
+						<td>
+							<?php
+								echo $res['contacto'];
 							?>
 						</td>
 					</tr>
@@ -78,8 +87,7 @@ if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador'):
 				<p>
 					<a href="editProveedores.php?id=<?php echo $res['id']; ?>" class="btn btn-link">Editar</a>
 					<a href="proveedores.php" class="btn btn-link">Volver</a>
-					<a href="#" class="btn btn-danger">Eliminar</a>
-				</p>
+		  	</p>
 			</div>
 		</div>
 	</div>

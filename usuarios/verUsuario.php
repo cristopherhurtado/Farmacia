@@ -90,7 +90,7 @@ if (isset($_GET['id'])) {
 				<p>
 					<a href="editUsuario.php?id=<?php echo $res['id']; ?>" class="btn btn-link">Editar</a>
 					<a href="usuarios.php" class="btn btn-link">Volver</a>
-					<a href="#" class="btn btn-danger">Eliminar</a>
+					<!--<a href="#" class="btn btn-danger">Eliminar</a>-->
 				</p>
 			</div>
 		</div>

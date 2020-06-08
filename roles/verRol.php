@@ -78,14 +78,14 @@ if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador'):
 				<p>
 					<a href="editRol.php?id=<?php echo $res['id']; ?>" class="btn btn-link">Editar</a>
 					<a href="roles.php" class="btn btn-link">Volver</a>
-					<a href="#" class="btn btn-danger">Eliminar</a>
+					<!--<a href="#" class="btn btn-danger">Eliminar</a>-->
 				</p>
 			</div>
 		</div>
 	</div>
 </body>
 </html>
-<?php else: 
+<?php else:
 	header('Location: ' . BASE_URL . 'index.php');
 	endif;
 ?>

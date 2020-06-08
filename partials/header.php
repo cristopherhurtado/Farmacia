@@ -34,6 +34,17 @@
             <a class="dropdown-item" href="<?php echo BASE_URL . 'marcas/marcas.php' ?>">Marcas</a>
           </div>
         </li>
+      <?php elseif(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Supervisor(a)'): ?>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Supervisor
+          </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="<?php echo BASE_URL . 'proveedores/proveedores.php' ?>">Proveedores</a>
+            <a class="dropdown-item" href="<?php echo BASE_URL . 'marcas/marcas.php' ?>">Marcas</a>
+          </div>
+        </li>
       <?php endif; ?>
       <li class="nav-item">
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>

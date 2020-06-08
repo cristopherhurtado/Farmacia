@@ -54,7 +54,7 @@ if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador'):
 
 				<form action="" method="post">
 					<div class="form-group">
-						<label>Nombre del rol</label>
+						<label>Nombre</label>
 						<input type="text" name="nombre" value="<?php echo @($nombre); ?>" placeholder="Nombre del rol" class="form-control">
 					</div>
 					<div class="form-group">

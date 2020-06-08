@@ -64,7 +64,11 @@ if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador'):
 				<?php if(isset($_GET['m'])): ?>
 					<p class="alert alert-success">El rol se ha modificado correctamente</p>
 				<?php endif; ?>
+				<!--
+					GET[] -> <header>
 
+					</header>
+				-->
 				<?php if(isset($mensaje)): ?>
 					<p class="alert alert-danger"><?php echo $mensaje; ?></p>
 				<?php endif; ?>
@@ -85,7 +89,7 @@ if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador'):
 	</div>
 </body>
 </html>
-<?php else: 
+<?php else:
 	header('Location: ' . BASE_URL . 'index.php');
 	endif;
 ?>
