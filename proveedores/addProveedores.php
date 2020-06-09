@@ -42,7 +42,7 @@ if (isset($_POST['enviar']) && $_POST['enviar'] == 'si') {
 	}
 	}
 
-if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador' || $_SESSION['rol'] == 'Supervisor(a)'):
+if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador' || $_SESSION['rol'] == 'Supervisor'):
 ?>
 <!DOCTYPE html>
 <html>

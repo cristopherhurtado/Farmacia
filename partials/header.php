@@ -25,16 +25,17 @@
             Administración
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Menu</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="<?php echo BASE_URL . 'roles/roles.php' ?>">Roles</a>
             <a class="dropdown-item" href="<?php echo BASE_URL . 'usuarios/usuarios.php' ?>">Usuarios</a>
             <a class="dropdown-item" href="<?php echo BASE_URL . 'proveedores/proveedores.php' ?>">Proveedores</a>
             <a class="dropdown-item" href="<?php echo BASE_URL . 'marcas/marcas.php' ?>">Marcas</a>
+            <a class="dropdown-item" href="<?php echo BASE_URL . 'medios_pago/mediosPago.php' ?>">Medios de Pago</a>
+            <a class="dropdown-item" href="<?php echo BASE_URL . 'categorias/categorias.php' ?>">Categorias</a>
           </div>
         </li>
-      <?php elseif(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Supervisor(a)'): ?>
+      <?php elseif(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Supervisor'): ?>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Supervisor
@@ -43,6 +44,9 @@
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="<?php echo BASE_URL . 'proveedores/proveedores.php' ?>">Proveedores</a>
             <a class="dropdown-item" href="<?php echo BASE_URL . 'marcas/marcas.php' ?>">Marcas</a>
+            <a class="dropdown-item" href="<?php echo BASE_URL . 'usuarios/usuarios.php' ?>">Usuarios</a>
+            <a class="dropdown-item" href="<?php echo BASE_URL . 'medios_pago/mediosPago.php' ?>">Medios de Pago</a>
+            <a class="dropdown-item" href="<?php echo BASE_URL . 'categorias/categorias.php' ?>">Categorias</a>
           </div>
         </li>
       <?php endif; ?>
