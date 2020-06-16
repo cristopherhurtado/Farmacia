@@ -48,6 +48,9 @@ if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador' || $_S
 				<a href="addMediosPago.php" class="btn btn-primary">Nuevo Medio de Pago</a>
 				<?php if(isset($res) && count($res)): ?>
 					<table class="table table-hover">
+						<tr>
+							<th>Nombre</th>
+						</tr>
 						<?php foreach($res as $r): ?>
 							<tr>
 								<td>

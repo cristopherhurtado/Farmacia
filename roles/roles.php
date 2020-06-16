@@ -48,6 +48,9 @@ if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador'):
 				<a href="addRoles.php" class="btn btn-primary">Nuevo Rol</a>
 				<?php if(isset($res) && count($res)): ?>
 					<table class="table table-hover">
+						<tr>
+							<th>Nombre</th>
+						</tr>
 						<?php foreach($res as $r): ?>
 							<tr>
 								<td>
@@ -64,11 +67,7 @@ if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador'):
 	</div>
 </body>
 </html>
-<?php else: 
+<?php else:
 	header('Location: ' . BASE_URL . 'index.php');
 	endif;
 ?>
-	
-
-
-

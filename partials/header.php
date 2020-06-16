@@ -2,7 +2,8 @@
 //require($_SERVER['DOCUMENT_ROOT'] . '/farmacia/class/config.php');
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Farmacia</a>
+<img  src="../img/Farmacias.png" alt="" width="15%">
+  <!--<a class="navbar-brand" href="#">Farmacia</a>-->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -25,6 +26,7 @@
             <a class="dropdown-item" href="<?php echo BASE_URL . 'clientes/clientes.php' ?>">Clientes</a>
             <a class="dropdown-item" href="<?php echo BASE_URL . 'marcas/marcas.php' ?>">Marcas</a>
             <a class="dropdown-item" href="<?php echo BASE_URL . 'medios_pago/mediosPago.php' ?>">Medios de Pago</a>
+            <a class="dropdown-item" href="<?php echo BASE_URL . 'productos/'; ?>">Productos</a>
             <a class="dropdown-item" href="<?php echo BASE_URL . 'proveedores/proveedores.php' ?>">Proveedores</a>
             <a class="dropdown-item" href="<?php echo BASE_URL . 'roles/roles.php' ?>">Roles</a>
             <a class="dropdown-item" href="<?php echo BASE_URL . 'usuarios/usuarios.php' ?>">Usuarios</a>
