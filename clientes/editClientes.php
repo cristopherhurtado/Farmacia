@@ -49,7 +49,7 @@ if (isset($_GET['id'])) {
 	}
 }
 
-if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador'):
+if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador' ):
 ?>
 <!DOCTYPE html>
 <html>

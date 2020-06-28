@@ -11,7 +11,8 @@ $marcas = new marcasModel;
 $res = $marcas->getMarcas();
 
 
-if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador' || $_SESSION['rol'] == 'Supervisor'):
+if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador' || $_SESSION['rol'] == 'Supervisor' || $_SESSION['rol'] == 'Jefe de Local'
+|| $_SESSION['rol'] == 'Vendedor' || $_SESSION['rol'] == 'Reponedor'):
 ?>
 <!DOCTYPE html>
 <html>

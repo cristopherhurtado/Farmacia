@@ -9,7 +9,8 @@ require('../class/config.php');
 $proveedores = new proveedoresModel;
 $res = $proveedores->getProveedores();
 
-if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador' || $_SESSION['rol'] == 'Supervisor' ):
+if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador' || $_SESSION['rol'] == 'Supervisor' || $_SESSION['rol'] == 'Jefe de Local'
+|| $_SESSION['rol'] == 'Reponedor'):
 ?>
 <!DOCTYPE html>
 <html>

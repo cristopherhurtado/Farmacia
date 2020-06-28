@@ -10,7 +10,7 @@ require('../class/config.php');
 $usuarios = new usuarioModel;
 $res = $usuarios->getUsuarios();
 //print_r($res);
-
+if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador' || $_SESSION['rol'] == 'Supervisor' || $_SESSION['rol'] == 'Jefe de Local'):
 ?>
 <!DOCTYPE html>
 <html>
@@ -62,3 +62,7 @@ $res = $usuarios->getUsuarios();
 	</div>
 </body>
 </html>
+<?php else:
+	header('Location: ' . BASE_URL . 'index.php');
+	endif;
+?>

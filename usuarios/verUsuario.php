@@ -23,8 +23,7 @@ if (isset($_GET['id'])) {
 	}
 }
 
-//print_r($res);
-
+if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador' || $_SESSION['rol'] == 'Supervisor' || $_SESSION['rol'] == 'Jefe de Local'):
 ?>
 <!DOCTYPE html>
 <html>
@@ -97,3 +96,7 @@ if (isset($_GET['id'])) {
 	</div>
 </body>
 </html>
+<?php else:
+	header('Location: ' . BASE_URL . 'index.php');
+	endif;
+?>

@@ -14,7 +14,6 @@ class productosModel extends Modelo
 FROM productos p INNER JOIN categorias c ON p.categorias_id = c.id INNER JOIN marcas m ON p.marcas_id = m.id");
 
 		return $pro->fetchall();
-
 	}
 
 	public function getProductoId($id){

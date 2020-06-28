@@ -11,7 +11,7 @@ $roles = new rolModel;
 $res = $roles->getRoles();
 //print_r($res);
 
-if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador'):
+if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador' || $_SESSION['rol'] == 'Jefe de Local'):
 ?>
 <!DOCTYPE html>
 <html>

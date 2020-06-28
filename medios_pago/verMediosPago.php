@@ -21,7 +21,8 @@ if (isset($_GET['id'])) {
 	}
 }
 
-if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador'):
+if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador' || $_SESSION['rol'] == 'Supervisor' || $_SESSION['rol'] == 'Jefe de Local'
+|| $_SESSION['rol'] == 'Vendedor'):
 ?>
 <!DOCTYPE html>
 <html>

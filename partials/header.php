@@ -22,14 +22,18 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="#">Vistas</a>
             <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="<?php echo BASE_URL . '#' ?>">Adquisiciones</a>
             <a class="dropdown-item" href="<?php echo BASE_URL . 'categorias/categorias.php' ?>">Categorias</a>
             <a class="dropdown-item" href="<?php echo BASE_URL . 'clientes/clientes.php' ?>">Clientes</a>
+            <a class="dropdown-item" href="<?php echo BASE_URL . '#' ?>">Detalle Adquisiciones</a>
+            <a class="dropdown-item" href="<?php echo BASE_URL . '#' ?>">Detalle Ventas</a>
             <a class="dropdown-item" href="<?php echo BASE_URL . 'marcas/marcas.php' ?>">Marcas</a>
             <a class="dropdown-item" href="<?php echo BASE_URL . 'medios_pago/mediosPago.php' ?>">Medios de Pago</a>
             <a class="dropdown-item" href="<?php echo BASE_URL . 'productos/'; ?>">Productos</a>
             <a class="dropdown-item" href="<?php echo BASE_URL . 'proveedores/proveedores.php' ?>">Proveedores</a>
             <a class="dropdown-item" href="<?php echo BASE_URL . 'roles/roles.php' ?>">Roles</a>
             <a class="dropdown-item" href="<?php echo BASE_URL . 'usuarios/usuarios.php' ?>">Usuarios</a>
+            <a class="dropdown-item" href="<?php echo BASE_URL . '#' ?>">Ventas</a>
           </div>
         </li>
       <?php elseif(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Supervisor'): ?>
@@ -37,13 +41,92 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Supervisor
           </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="<?php echo BASE_URL . 'proveedores/proveedores.php' ?>">Proveedores</a>
-            <a class="dropdown-item" href="<?php echo BASE_URL . 'marcas/marcas.php' ?>">Marcas</a>
-            <a class="dropdown-item" href="<?php echo BASE_URL . 'usuarios/usuarios.php' ?>">Usuarios</a>
-            <a class="dropdown-item" href="<?php echo BASE_URL . 'medios_pago/mediosPago.php' ?>">Medios de Pago</a>
+            <a class="dropdown-item" href="<?php echo BASE_URL . '#' ?>">Adquisiciones</a>
             <a class="dropdown-item" href="<?php echo BASE_URL . 'categorias/categorias.php' ?>">Categorias</a>
+            <a class="dropdown-item" href="<?php echo BASE_URL . 'clientes/clientes.php' ?>">Clientes</a>
+            <a class="dropdown-item" href="<?php echo BASE_URL . '#' ?>">Detalle Adquisiciones</a>
+            <a class="dropdown-item" href="<?php echo BASE_URL . '#' ?>">Detalle Ventas</a>
+            <a class="dropdown-item" href="<?php echo BASE_URL . 'marcas/marcas.php' ?>">Marcas</a>
+            <a class="dropdown-item" href="<?php echo BASE_URL . 'medios_pago/mediosPago.php' ?>">Medios de Pago</a>
+            <a class="dropdown-item" href="<?php echo BASE_URL . 'productos/'; ?>">Productos</a>
+            <a class="dropdown-item" href="<?php echo BASE_URL . 'proveedores/proveedores.php' ?>">Proveedores</a>
+            <a class="dropdown-item" href="<?php echo BASE_URL . 'usuarios/usuarios.php' ?>">Usuarios</a>
+            <a class="dropdown-item" href="<?php echo BASE_URL . '#' ?>">Ventas</a>
+          </div>
+        </li>
+      <?php elseif(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Jefe de Local'): ?>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Jefe de Local
+          </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="<?php echo BASE_URL . '#' ?>">Adquisiciones</a>
+          <a class="dropdown-item" href="<?php echo BASE_URL . 'categorias/categorias.php' ?>">Categorias</a>
+          <a class="dropdown-item" href="<?php echo BASE_URL . 'clientes/clientes.php' ?>">Clientes</a>
+          <a class="dropdown-item" href="<?php echo BASE_URL . '#' ?>">Detalle Adquisiciones</a>
+          <a class="dropdown-item" href="<?php echo BASE_URL . '#' ?>">Detalle Ventas</a>
+          <a class="dropdown-item" href="<?php echo BASE_URL . 'marcas/marcas.php' ?>">Marcas</a>
+          <a class="dropdown-item" href="<?php echo BASE_URL . 'medios_pago/mediosPago.php' ?>">Medios de Pago</a>
+          <a class="dropdown-item" href="<?php echo BASE_URL . 'productos/'; ?>">Productos</a>
+          <a class="dropdown-item" href="<?php echo BASE_URL . 'proveedores/proveedores.php' ?>">Proveedores</a>
+          <a class="dropdown-item" href="<?php echo BASE_URL . 'roles/roles.php' ?>">Roles</a>
+          <a class="dropdown-item" href="<?php echo BASE_URL . 'usuarios/usuarios.php' ?>">Usuarios</a>
+          <a class="dropdown-item" href="<?php echo BASE_URL . '#' ?>">Ventas</a>
+        </div>
+        </li>
+      <?php elseif(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Vendedor'): ?>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Vendedor
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="<?php echo BASE_URL . 'categorias/categorias.php' ?>">Categorias</a>
+            <a class="dropdown-item" href="<?php echo BASE_URL . 'clientes/clientes.php' ?>">Clientes</a>
+            <a class="dropdown-item" href="<?php echo BASE_URL . '#' ?>">Detalle Ventas</a>
+            <a class="dropdown-item" href="<?php echo BASE_URL . 'marcas/marcas.php' ?>">Marcas</a>
+            <a class="dropdown-item" href="<?php echo BASE_URL . 'medios_pago/mediosPago.php' ?>">Medios de Pago</a>
+            <a class="dropdown-item" href="<?php echo BASE_URL . 'productos/'; ?>">Productos</a>
+            <a class="dropdown-item" href="<?php echo BASE_URL . '#' ?>">Ventas</a>
+          </div>
+        </li>
+      <?php elseif(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Reponedor'): ?>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Reponedor
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="<?php echo BASE_URL . '#' ?>">Adquisiciones</a>
+            <a class="dropdown-item" href="<?php echo BASE_URL . 'categorias/categorias.php' ?>">Categorias</a>
+            <a class="dropdown-item" href="<?php echo BASE_URL . 'marcas/marcas.php' ?>">Marcas</a>
+            <a class="dropdown-item" href="<?php echo BASE_URL . 'productos/'; ?>">Productos</a>
+            <a class="dropdown-item" href="<?php echo BASE_URL . 'proveedores/proveedores.php' ?>">Proveedores</a>
+          </div>
+        </li>
+      <?php elseif(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Promotora'): ?>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Promotora
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="<?php echo BASE_URL . 'categorias/categorias.php' ?>">Categorias</a>
+            <a class="dropdown-item" href="<?php echo BASE_URL . 'productos/'; ?>">Productos</a>
+          </div>
+        </li>
+      <?php elseif(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Cliente'): ?>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Cliente
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="<?php echo BASE_URL . 'categorias/categorias.php' ?>">Categorias</a>
+            <a class="dropdown-item" href="<?php echo BASE_URL . 'productos/'; ?>">Productos</a>
           </div>
         </li>
       <?php endif; ?>

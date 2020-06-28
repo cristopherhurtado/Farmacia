@@ -10,7 +10,8 @@ require('../class/config.php');
 $productos = new productosModel;
 $res = $productos->getProductos();
 
-
+if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador' || $_SESSION['rol'] == 'Supervisor' || $_SESSION['rol'] == 'Jefe de Local'
+|| $_SESSION['rol'] == 'Vendedor' || $_SESSION['rol'] == 'Reponedor' || $_SESSION['rol'] == 'Promotora' || $_SESSION['rol'] == 'Cliente'):
 ?>
 <!DOCTYPE html>
 <html>
@@ -62,3 +63,7 @@ $res = $productos->getProductos();
 	</div>
 </body>
 </html>
+<?php else:
+	header('Location: ' . BASE_URL . 'index.php');
+	endif;
+?>
