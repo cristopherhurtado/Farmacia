@@ -30,7 +30,7 @@ if (isset($_SESSION['autenticado']) && $_SESSION['autenticado'] == 'si'):
 </head>
 <body>
 	<div class="container">
-		<?php include('partials/header.php'); ?>
+		<?php include_once('partials/header.php'); ?>
 		<div class="row">
 			<div class="col-md-12 mt-3">
 				<h4>

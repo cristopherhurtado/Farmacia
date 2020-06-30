@@ -4,15 +4,18 @@ ini_set('display_errors', '1');
 session_start();
 
 require('../class/clientesModel.php');
+require('../class/imagenesModel.php');
 require('../class/config.php');
 
 $clientes = new clientesModel;
+$imagenes = new imagenesModel;
 
 if (isset($_GET['id'])) {
 
 	$id = filter_var($_GET['id'], FILTER_VALIDATE_INT);
 
 	$res = $clientes->getClienteId($id);
+	$img = $imagenes->getImagenes($id);
 
 	if (!$res) {
 		$msg = 'error';
@@ -82,6 +85,12 @@ if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador' || $_S
 							<?php
 								echo $res['persona'];
 							?>
+						</td>
+					</tr>
+					<tr>
+						<th>Imagen:</th>
+						<td>
+							<img src="<?php echo BASE_IMG . 'clientes/' . $img['titulo']; ?>" class="img-responsive" >
 						</td>
 					</tr>
 				</table>

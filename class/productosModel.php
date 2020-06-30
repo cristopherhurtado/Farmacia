@@ -10,8 +10,8 @@ class productosModel extends Modelo
 
 	public function getProductos(){
 
-		$pro = $this->_db->query("SELECT p.id, p.nombre AS NOMBRE, p.codigo AS CODIGO, p.precio AS PRECIO, c.categorias_id as CATEGORIA, m.marcas_id_id as MARCA
-FROM productos p INNER JOIN categorias c ON p.categorias_id = c.id INNER JOIN marcas m ON p.marcas_id = m.id");
+		$pro = $this->_db->query("SELECT p.id, p.nombre AS NOMBRE, p.codigo AS CODIGO, p.precio AS PRECIO, c.nombre as CATEGORIA, m.nombre as MARCA,
+p.descripcion as DESCRIPCION FROM productos p INNER JOIN categorias c ON p.categorias_id = c.id INNER JOIN marcas m ON p.marcas_id = m.id");
 
 		return $pro->fetchall();
 	}
@@ -19,8 +19,8 @@ FROM productos p INNER JOIN categorias c ON p.categorias_id = c.id INNER JOIN ma
 	public function getProductoId($id){
 		$id = (int) $id;
 
-		$pro = $this->_db->prepare("SELECT p.id, p.nombre AS NOMBRE, p.codigo AS CODIGO, p.precio AS PRECIO, c.categorias_id as CATEGORIA, m.marcas_id_id as MARCA
-    FROM productos p INNER JOIN categorias c ON p.categorias_id = c.id INNER JOIN marcas m ON p.marcas_id = m.id  WHERE id = ?");
+		$pro = $this->_db->prepare("SELECT p.id, p.nombre AS NOMBRE, p.codigo AS CODIGO, p.precio AS PRECIO, c.id as idCategorias, c.nombre as CATEGORIA, m.id as idMarcas, m.nombre as MARCA,
+p.descripcion as DESCRIPCION FROM productos p INNER JOIN categorias c ON p.categorias_id = c.id INNER JOIN marcas m ON p.marcas_id = m.id  WHERE p.id = ?");
 		$pro->bindParam(1, $id);
 		$pro->execute();
 
@@ -49,10 +49,11 @@ FROM productos p INNER JOIN categorias c ON p.categorias_id = c.id INNER JOIN ma
 		return $row;
 	}
 
-	public function editProductos($nombre, $codigo, $precio, $categorias_id, $marcas_id, $descripcion){
+	public function editProductos($id, $nombre, $codigo, $precio, $categorias_id, $marcas_id, $descripcion){
 		$id = (int) $id;
 
-		$pro = $this->_db->prepare("UPDATE productos SET nombre = ?, codigo = ?, precio = ?, categorias_id = ?, marcas_id = ? descripcion = ?; WHERE id = ?");
+
+		$pro = $this->_db->prepare("UPDATE productos SET nombre = ?, codigo = ?, precio = ?, categorias_id = ?, marcas_id = ?, descripcion = ? WHERE id = ?");
 		$pro->bindParam(7, $id);
 		$pro->bindParam(1, $nombre);
 		$pro->bindParam(2, $codigo);

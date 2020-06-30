@@ -1,12 +1,15 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
-
-require('../class/clientesModel.php');
-require('../class/config.php');
 session_start();
 
+require('../class/clientesModel.php');
+require('../class/imagenesModel.php');
+require('../class/config.php');
+
+
 $clientes = new clientesModel;
+$imagenes = new imagenesModel;
 
 if (isset($_POST['enviar']) && $_POST['enviar'] == 'si') {
 	$nombre = trim(strip_tags($_POST['nombre']));
@@ -14,6 +17,8 @@ if (isset($_POST['enviar']) && $_POST['enviar'] == 'si') {
 	$direccion = trim(strip_tags($_POST['direccion']));
 	$fecha_nac = trim(strip_tags($_POST['fecha_nac']));
 	$persona = trim(strip_tags($_POST['persona']));
+	$imagenes = trim(strip_tags($_POST['imagen']));
+
 
 	if (!$nombre) {
 		$mensaje = 'Ingrese el nombre del clienter';
@@ -25,6 +30,8 @@ if (isset($_POST['enviar']) && $_POST['enviar'] == 'si') {
 		$mensaje = 'Ingrese fecha de nacimiento del cliente';
 	}elseif (!$persona) {
 		$mensaje = 'Ingrese el tipo de persona del cliente';
+	}elseif (!$imagen) {
+		$mensaje = 'Ingrese la imagen del cliente';
 	}else{
 
 		$res = $clientes->getClienteNombre($nombre);
@@ -32,7 +39,7 @@ if (isset($_POST['enviar']) && $_POST['enviar'] == 'si') {
 		if ($res) {
 			$mensaje = 'El cliente ingresado ya existe';
 		}else{
-			$res = $clientes->setClientes($nombre, $rut, $direccion, $fecha_nac, $persona);
+			$res = $clientes->setClientes($nombre, $rut, $direccion, $fecha_nac, $persona, $imagenes);
 
 			if ($res) {
 				$msg = 'ok';
@@ -87,9 +94,9 @@ if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador' || $_S
 					<div class="form-group">
 						<input type="hidden" name="enviar" value="si">
 						<button type="submit" class="btn btn-success">Guardar</button>
+						<a href="<?php echo BASE_URL . 'imagenes/addImagenesClientes.php?id='?>" class="btn btn-warning">Agregar Imagen</a>
 						<a href="clientes.php" class="btn btn-link">Volver</a>
 					</div>
-
 				</form>
 			</div>
 			</div>

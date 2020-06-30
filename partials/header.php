@@ -2,7 +2,7 @@
 //require($_SERVER['DOCUMENT_ROOT'] . '/farmacia/class/config.php');
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-<img  src="../img/Farmacias.png" alt="" width="15%">
+<img src="../img/Farmacias.png" alt="" width="15%" >
   <!--<a class="navbar-brand" href="#">Farmacia</a>-->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -20,7 +20,6 @@
             Administración
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Vistas</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="<?php echo BASE_URL . '#' ?>">Adquisiciones</a>
             <a class="dropdown-item" href="<?php echo BASE_URL . 'categorias/categorias.php' ?>">Categorias</a>

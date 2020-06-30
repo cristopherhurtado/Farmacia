@@ -47,27 +47,27 @@ if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador' || $_S
 				<table class="table table-hover">
 					<tr>
 						<th>Nombre:</th>
-						<td><?php echo $res['nombre']; ?></td>
+						<td><?php echo $res['NOMBRE']; ?></td>
 					</tr>
 					<tr>
 						<th>Codigo:</th>
-						<td><?php echo $res['codigo']; ?></td>
+						<td><?php echo $res['CODIGO']; ?></td>
 					</tr>
 					<tr>
 						<th>Precio:</th>
-						<td><?php echo $res['precio']; ?></td>
+						<td><?php echo $res['PRECIO']; ?></td>
 					</tr>
 					<tr>
 						<th>Categoria:</th>
-						<td><?php echo $res['categorias']; ?></td>
+						<td><?php echo $res['CATEGORIA']; ?></td>
 					</tr>
 					<tr>
 						<th>Marca:</th>
-						<td><?php echo $res['marcas']; ?></td>
+						<td><?php echo $res['MARCA']; ?></td>
 					</tr>
 					<tr>
 						<th>Descripcion:</th>
-						<td><?php echo $res['descripcion']; ?></td>
+						<td><?php echo $res['DESCRIPCION']; ?></td>
 					</tr>
 				</table>
 				<p>

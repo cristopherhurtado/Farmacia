@@ -9,6 +9,10 @@ require('../class/config.php');
 
 $productos = new productosModel;
 $res = $productos->getProductos();
+//echo "<pre>";
+//var_dump($res);
+//echo "</pre>";
+//die();
 
 if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador' || $_SESSION['rol'] == 'Supervisor' || $_SESSION['rol'] == 'Jefe de Local'
 || $_SESSION['rol'] == 'Vendedor' || $_SESSION['rol'] == 'Reponedor' || $_SESSION['rol'] == 'Promotora' || $_SESSION['rol'] == 'Cliente'):
@@ -26,7 +30,7 @@ if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador' || $_S
 	<div class="container">
 		<?php include('../partials/header.php'); ?>
 		<div class="row">
-			<div class="col-md-8 mt-3">
+			<div class="col-md-12 mt-3">
 				<h3>Productos</h3>
 
 				<?php include('../partials/mensajes.php'); ?>
@@ -45,13 +49,13 @@ if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador' || $_S
 						<?php foreach($res as $r): ?>
 							<tr>
 								<td>
-									<a href="show.php?id=<?php echo $r['id']; ?>"><?php echo $r['nombre']; ?></a>
+									<a href="show.php?id=<?php echo $r['id']; ?>"><?php echo $r['NOMBRE']; ?></a>
 								</td>
-								<td><?php echo $r['codigo'] ?></td>
-								<td><?php echo $r['precio'] ?></td>
-							  <td><?php echo $r['categorias'] ?></td>
-								<td><?php echo $r['marcas'] ?></td>
-								<td><?php echo $r['descripcion'] ?></td>
+								<td><?php echo $r['CODIGO'] ?></td>
+								<td><?php echo $r['PRECIO'] ?></td>
+							  <td><?php echo $r['CATEGORIA'] ?></td>
+								<td><?php echo $r['MARCA'] ?></td>
+								<td><?php echo $r['DESCRIPCION'] ?></td>
 							</tr>
 						<?php endforeach; ?>
 					</table>

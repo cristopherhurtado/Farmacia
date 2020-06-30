@@ -4,9 +4,11 @@ ini_set('display_errors', '1');
 session_start();
 
 require('../class/clientesModel.php');
+require('../class/imagenesModel.php');
 require('../class/config.php');
 
 $clientes = new clientesModel;
+$imagenes = new imagenesModel;
 
 if (isset($_GET['id'])) {
 
@@ -26,6 +28,7 @@ if (isset($_GET['id'])) {
 		$direccion = trim(strip_tags($_POST['direccion']));
 		$fecha_nac = trim(strip_tags($_POST['fecha_nac']));
 		$persona = trim(strip_tags($_POST['persona']));
+		$imagen = trim(strip_tags($_POST['imagen']));
 
 		if (!$nombre) {
 			$mensaje = 'Ingrese el nombre del cliente';
@@ -99,6 +102,7 @@ if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador' ):
 					<div class="form-group">
 						<input type="hidden" name="enviar" value="si">
 						<button type="submit" class="btn btn-success">Modificar</button>
+						<a href="<?php echo BASE_URL . 'imagenes/addImagenesClientes.php?id='?>" class="btn btn-warning">Agregar Imagen</a>
 						<a href="clientes.php" class="btn btn-link">Volver</a>
 					</div>
 				</form>

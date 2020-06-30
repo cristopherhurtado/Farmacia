@@ -5,7 +5,7 @@ session_start();
 
 require('../class/categoriasModel.php');
 require('../class/marcasModel.php');
-require('../class/porductosModel.php');
+require('../class/productosModel.php');
 require('../class/config.php');
 
 $categorias = new categoriasModel;
@@ -16,7 +16,7 @@ if (isset($_GET['id'])) {
 	$id = (int) $_GET['id'];
 
 	$pro = $productos->getProductoId($id);
-	$res = $maras->getMarcas();
+	$res = $marcas->getMarcas();
 	$res = $categorias->getCategorias();
 
 
@@ -40,17 +40,17 @@ if (isset($_GET['id'])) {
 					$mensaje = 'Ingrese el codigo del producto';
 				}elseif (!$precio) {
 					$mensaje = 'Ingrese precio del producto';
-				}elseif ($categorias_id) {
+				}elseif (!$categorias_id) {
 					$mensaje = 'Seleccione categoria';
-				}else{($marcas_id) {
+				}elseif (!$marcas_id) {
 					$mensaje = 'Seleccione marca';
-				}else{($descripcion) {
+				}elseif (empty($descripcion)) {
 					$mensaje = 'Ingrese descripcion';
 				}else{
 
-			$pro = $productos->editProducto($id, $nombre, $codigo, $precio, $categorias, $marcas, $descripcion);
+			$pro = $productos->editProductos($id, $nombre, $codigo, $precio, $categorias_id, $marcas_id, $descripcion);
 
-			if($usu){
+			if($pro){
 				$_SESSION['success'] = 'El producto se ha modificado correctamente';
 				header('Location: show.php?id=' . $id);
 			}else{
@@ -60,7 +60,7 @@ if (isset($_GET['id'])) {
 		}
 	}
 }
-if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador');
+if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador'):
 ?>
 <!DOCTYPE html>
 <html>
@@ -83,37 +83,37 @@ if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador');
 				<form action="" method="post">
 					<div class="form-group">
 						<label>Nombre</label>
-						<input type="text" name="nombre" value="<?php echo $pro['nombre']; ?>" placeholder="Nombre del producto" class="form-control">
+						<input type="text" name="nombre" value="<?php echo $pro['NOMBRE']; ?>" placeholder="Nombre del producto" class="form-control">
 					</div>
 					<div class="form-group">
 						<label>Codigo</label>
-						<input type="text" name="codigo" value="<?php echo $pro['codigo']; ?>" placeholder="Codigo del producto" class="form-control">
+						<input type="text" name="codigo" value="<?php echo $pro['CODIGO']; ?>" placeholder="Codigo del producto" class="form-control">
 					</div>
 					<div class="form-group">
 						<label>Precio</label>
-						<input type="text" name="precio" value="<?php echo $pro['precio']; ?>" placeholder="Precio del producto" class="form-control">
+						<input type="text" name="precio" value="<?php echo $pro['PRECIO']; ?>" placeholder="Precio del producto" class="form-control">
 					</div>
 					<div class="form-group">
 						<label>Categoria</label>
 						<select name="categorias" class="form-control">
-							<option value="<?php echo $pro['categorias'] ?>"><?php echo $pro['categorias']; ?></option>
+							<option value="<?php echo $pro['idCategorias'] ?>"><?php echo $pro['CATEGORIA']; ?></option>
 							<?php foreach($res as $r):?>
-								<option value="<?php echo $r['id']; ?>"><?php echo $r['nombre']; ?></option>
+								<option value="<?php echo $r['id']; ?>"><?php echo $r['NOMBRE']; ?></option>
 							<?php endforeach; ?>
 						</select>
 					</div>
 					<div class="form-group">
 						<label>Marca</label>
 						<select name="marcas" class="form-control">
-							<option value="<?php echo $pro['marcas'] ?>"><?php echo $pro['marcas']; ?></option>
+							<option value="<?php echo $pro['idMarcas'] ?>"><?php echo $pro['MARCA']; ?></option>
 							<?php foreach($res as $r):?>
-								<option value="<?php echo $r['id']; ?>"><?php echo $r['nombre']; ?></option>
+								<option value="<?php echo $r['id']; ?>"><?php echo $r['NOMBRE']; ?></option>
 							<?php endforeach; ?>
 						</select>
 					</div>
 					<div class="form-group">
 						<label>Descripcion</label>
-						<input type="text" name="descripcion" value="<?php echo $pro['descripcion']; ?>" placeholder="Descripcion del producto" class="form-control">
+						<textarea type="text" name="descripcion" value="<?php echo $pro['DESCRIPCION']; ?>" placeholder="Descripcion del producto" class="form-control"></textarea>
 					</div>
 					<div class="form-group">
 						<input type="hidden" name="enviar" value="si">

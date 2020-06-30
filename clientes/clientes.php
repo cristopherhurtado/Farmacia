@@ -4,10 +4,14 @@ ini_set('display_errors', '1');
 session_start();
 
 require('../class/clientesModel.php');
+require('../class/imagenesModel.php');
 require('../class/config.php');
 
 $clientes = new clientesModel;
+$imagenes = new imagenesModel;
+
 $res = $clientes->getClientes();
+$img = $imagenes->getImagenes();
 
 if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador' || $_SESSION['rol'] == 'Supervisor' || $_SESSION['rol'] == 'Jefe de Local'
 || $_SESSION['rol'] == 'Vendedor'):
@@ -51,6 +55,7 @@ if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador' || $_S
 							<th>Nombre</th>
 							<th>Rut</th>
 							<th>Persona</th>
+							<th>Imagen</th>
 						</tr>
 						<?php foreach($res as $r): ?>
 							<tr>
@@ -59,6 +64,7 @@ if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador' || $_S
 								</td>
 								<td><?php echo $r['rut'] ?></td>
 							 <td><?php echo $r['persona'] ?></td>
+							 <td><img src="<?php echo BASE_IMG . 'clientes/' . $img['titulo']; ?>" class="img-responsive" ></td>
 							</tr>
 						<?php endforeach; ?>
 					</table>

@@ -87,7 +87,9 @@ if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador' || $_S
 					</tr>
 				</table>
 				<p>
+					<?php if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador'):?>
 					<a href="editUsuario.php?id=<?php echo $res['id']; ?>" class="btn btn-link">Editar</a>
+					<?php endif;?>
 					<a href="usuarios.php" class="btn btn-link">Volver</a>
 					<!--<a href="#" class="btn btn-danger">Eliminar</a>-->
 				</p>

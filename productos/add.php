@@ -28,9 +28,9 @@ if (isset($_POST['enviar']) && $_POST['enviar'] == 'si') {
 		$mensaje = 'Ingrese precio del producto';
 	}elseif ($categorias_id) {
 		$mensaje = 'Seleccione categoria';
-	}else{($marcas_id) {
+	}elseif ($marcas_id) {
 		$mensaje = 'Seleccione marca';
-	}else{($descripcion) {
+	}elseif ($descripcion) {
 		$mensaje = 'Ingrese descripcion';
 	}else{
 
@@ -52,7 +52,7 @@ if (isset($_POST['enviar']) && $_POST['enviar'] == 'si') {
 		}
 	}
 }
-if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador' || $_SESSION['rol'] == 'Jefe de Local');
+if(isset($_SESSION['autenticado']) && $_SESSION['rol'] == 'Administrador' || $_SESSION['rol'] == 'Jefe de Local'):
 ?>
 <!DOCTYPE html>
 <html>
